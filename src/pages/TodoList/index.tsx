@@ -1,14 +1,15 @@
-import { FC } from 'react';
+import { FC, useContext } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 
-import { Container, Content } from './styles';
+import { Container, Content, ListBody, List } from './styles';
+import { TodoListContext } from '../../context/ToDoListsContext';
 
 interface Inputs {
-  ToDo: string;
-  todoDescription: string;
+  name: string;
+  description: string;
 }
 
 export const TodoList: FC = () => {
@@ -19,18 +20,20 @@ export const TodoList: FC = () => {
     formState: { errors },
   } = useForm<Inputs>();
 
+  const { list, addNewTodoItem } = useContext(TodoListContext);
+
   const onSubmit: SubmitHandler<Inputs> = data => {
-    console.log(data);
+    addNewTodoItem(data);
     reset();
   };
 
   return (
     <Container>
       <Content>
-        <h1>ToDo List</h1>
         <form onSubmit={handleSubmit(onSubmit)}>
+          <h1>To Do List</h1>
           <Input
-            name="ToDo"
+            name="name"
             register={register}
             rules={{
               required: { value: true, message: 'Este campo é obrigatório' },
@@ -38,10 +41,11 @@ export const TodoList: FC = () => {
             defaultValue=""
             error={errors}
             placeholder="Tarefa"
+            autoComplete="off"
           />
 
           <Input
-            name="toDoDescription"
+            name="description"
             register={register}
             rules={{
               required: {
@@ -52,10 +56,14 @@ export const TodoList: FC = () => {
             defaultValue=""
             error={errors}
             placeholder="Descrição"
+            autoComplete="off"
           />
           <Button type="submit">Enviar</Button>
         </form>
       </Content>
+      <ListBody>
+        <List />
+      </ListBody>
     </Container>
   );
 };

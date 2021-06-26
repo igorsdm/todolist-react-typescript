@@ -1,14 +1,14 @@
 import { GlobalStyle } from './styles/globals';
-import { TodoListContext } from './context/ToDoListsContext';
+import { TodoListProvider } from './context/ToDoListsContext';
 
 import { TodoList } from './pages/TodoList';
 
 export const App: React.FC = () => {
   return (
-    <TodoListContext.Provider value={[]}>
+    <TodoListProvider>
       <TodoList />
       <GlobalStyle />
-    </TodoListContext.Provider>
+    </TodoListProvider>
   );
 };
 

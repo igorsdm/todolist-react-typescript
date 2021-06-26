@@ -4,13 +4,13 @@ import { shade } from 'polished';
 export const Container = styled.button`
   background: #ff9000;
   color: #312e38;
-  height: 56px;
+  height: 3rem;
   border-radius: 10px;
   border: 0;
-  padding: 0 16px;
+  padding: 0 1rem;
   width: 100%;
   font-weight: 500;
-  margin-top: 16px;
+  margin-top: 1rem;
   transition: background-color 0.2s;
 
   &:hover {

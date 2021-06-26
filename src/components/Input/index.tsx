@@ -6,7 +6,7 @@ import { FiAlertCircle } from 'react-icons/fi';
 import { Container, Error } from './styles';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-  error?: Record<string, Record<string, unknown>>;
+  error?: Record<string, any>;
   register: UseFormRegister<any>;
   rules: Record<string, unknown>;
 }
@@ -30,7 +30,7 @@ const Input: FC<InputProps> = ({ name, error, register, rules, ...rest }) => {
         onFocus={handleInputFocus}
         {...rest}
       />
-      {error[name] && (
+      {!!error[name] && (
         <Error title={error[name].message}>
           <FiAlertCircle color="#c53030" size={20} />
         </Error>
