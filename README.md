@@ -1,4 +1,4 @@
-# ToDoList ReactJS with Typescript and ContextApi
+# To Do List ReactJS with Typescript and ContextApi
 
 ## About
 
