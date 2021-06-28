@@ -1,4 +1,9 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { shade } from 'polished';
+
+interface ListItemProps {
+  disabled: boolean;
+}
 
 export const Container = styled.div`
   display: flex;
@@ -26,7 +31,7 @@ export const Content = styled.div`
   }
 `;
 
-export const ListBody = styled.div`
+export const ListContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -38,7 +43,7 @@ export const ListBody = styled.div`
   border-radius: 10px 10px 0 0;
 `;
 
-export const List = styled.div`
+export const ListBody = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -64,4 +69,62 @@ export const List = styled.div`
     background: #ff9000;
     border-radius: 10px;
   }
+`;
+
+export const ListItem = styled.div<ListItemProps>`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 1rem;
+  margin: 0.7rem 0;
+
+  background: ${({ disabled }) =>
+    disabled ? shade(0.6, '#ff9000') : '#ff9000'};
+  transition: background-color 0.2s;
+  color: #312e38;
+
+  border-radius: 10px;
+  width: 100%;
+  height: 5rem;
+
+  cursor: pointer;
+
+  ${props =>
+    !props.disabled &&
+    css`
+      &:hover {
+        background: ${shade(0.2, '#ff9000')};
+      }
+    `}
+`;
+
+export const ListInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
+
+export const ListActions = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 3.8rem;
+`;
+
+export const ListEmpty = styled.div`
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+`;
+
+export const TaskCounter = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  margin: 0.5rem 0;
 `;

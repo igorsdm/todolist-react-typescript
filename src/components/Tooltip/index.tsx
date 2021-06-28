@@ -6,7 +6,11 @@ interface TooltipProps {
   className?: string;
 }
 
-const Tooltip: React.FC<TooltipProps> = ({ title, children, className }) => {
+export const Tooltip: React.FC<TooltipProps> = ({
+  title,
+  children,
+  className,
+}) => {
   return (
     <Container className={className}>
       {children}
@@ -14,5 +18,3 @@ const Tooltip: React.FC<TooltipProps> = ({ title, children, className }) => {
     </Container>
   );
 };
-
-export default Tooltip;

@@ -10,6 +10,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   html {
+
     @media (max-width: 1080px) {
       font-size: 93.75%
     }
@@ -27,6 +28,7 @@ export const GlobalStyle = createGlobalStyle`
 
   body, input, textarea, button {
     font-family: 'Roboto Slab', sans-serif;
+    font-size: 1rem;
   }
 
   h1, h2, h3, h4, h5, h6, strong {
@@ -35,10 +37,5 @@ export const GlobalStyle = createGlobalStyle`
 
   button {
     cursor: pointer;
-  }
-
-  [disabled] {
-    opacity: 0.6;
-    cursor: not-allowed;
   }
 `;

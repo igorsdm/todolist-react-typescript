@@ -1,5 +1,5 @@
 import { GlobalStyle } from './styles/globals';
-import { TodoListProvider } from './context/ToDoListsContext';
+import { TodoListProvider } from './context/ToDoListContext';
 
 import { TodoList } from './pages/TodoList';
 

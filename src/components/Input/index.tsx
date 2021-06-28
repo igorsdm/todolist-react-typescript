@@ -11,7 +11,13 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   rules: Record<string, unknown>;
 }
 
-const Input: FC<InputProps> = ({ name, error, register, rules, ...rest }) => {
+export const Input: FC<InputProps> = ({
+  name,
+  error,
+  register,
+  rules,
+  ...rest
+}) => {
   const [isFocused, setIsFocused] = useState(false);
 
   const handleInputFocus = useCallback(() => {
@@ -38,4 +44,3 @@ const Input: FC<InputProps> = ({ name, error, register, rules, ...rest }) => {
     </Container>
   );
 };
-export default Input;

@@ -2,13 +2,12 @@ import { ButtonHTMLAttributes, FC } from 'react';
 
 import { Container } from './styles';
 
-const Button: FC<ButtonHTMLAttributes<HTMLButtonElement>> = ({
-  children,
-  ...rest
-}) => (
-  <Container type="button" {...rest}>
+interface ButtonProps extends ButtonHTMLAttributes<HTMLInputElement> {
+  colorScheme: string;
+}
+
+export const Button: FC<ButtonProps> = ({ children, colorScheme, ...rest }) => (
+  <Container colorScheme={colorScheme} type="button" {...rest}>
     {children}
   </Container>
 );
-
-export default Button;
