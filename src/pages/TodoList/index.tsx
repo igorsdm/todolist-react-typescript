@@ -170,6 +170,8 @@ export const TodoList: FC = () => {
                       color="#312e38"
                       onClick={e => {
                         e.stopPropagation();
+                        setEditMode(false);
+                        setEditId('');
                         handleDeleteTodoItem(item);
                       }}
                     />
